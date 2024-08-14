@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Independence Day 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollSmoother.min.js"></script>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <h1>Independence Day 2025</h1>
+            <nav>
+                <ul>
+                    <li><a href="#history">History</a></li>
+                    <li><a href="#events">Events</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero">
+        <video autoplay controls loop='infinite' id="heroVideo">
+            <source src="vid1.mp4" type="video/mp4">
+            
+        </video>
+        <div class="hero-content">
+            <h2>Celebrate Freedom with Pride</h2>
+            <p>Join us in celebrating the spirit of unity and diversity on Independence Day.</p>
+            <a href="#learn-more" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <!-- History Section with Parallax Effect -->
+    <section id="history" class="section">
+        <div class="container">
+            <div class="content">
+                <h2>History of Independence</h2>
+                <p>India's Independence Day is celebrated every year on August 15th, marking the end of British rule in 1947. This day commemorates the sacrifices made by countless freedom fighters who fought for the nation's liberty. Independence Day is a reminder of India's struggle for freedom, led by iconic leaders like Mahatma Gandhi, Jawaharlal Nehru, and Sardar Patel, who united the nation for a common cause.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section with Interactive Cards -->
+    <section id="events" class="section">
+        <div class="container">
+            <div class="content">
+                <h2>Upcoming Events</h2>
+                <p>Explore events planned for Independence Day 2025 across the country.</p>
+                <div class="cards">
+                    <a href="https://www.youtube.com/live/TuyigkQvVOQ?si=UCj7_J2FQcgrpFFS">
+                        <div class="card">
+                            <img src="https://media.istockphoto.com/id/501905872/photo/red-fort-delhi-india.jpg?s=612x612&w=0&k=20&c=TMHyWfCRBVIrDGOpmOWGJWKerZvu0tC1Z1-yYDe2QwM=" alt="Event 1">
+                            <h3>Event in Delhi</h3>
+                            <p>Date: August 15, 2025</p>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/live/zRG_rNtC1os?si=9HTtCSwihEEe1De3">
+                        <div class="card">
+                            <img src="https://th.bing.com/th/id/OIP.l3rZmv55E6mhsilaRDrUuwHaEK?rs=1&pid=ImgDetMain" alt="Event 2">
+                            <h3>Event in Mumbai</h3>
+                            <p>Date: August 15, 2025</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section with Dynamic Grid -->
+    <section id="gallery" class="section">
+        <div class="container">
+            <h2><span id="sahidspan">Shaheed</span> A Watan</h2>
+            <div class="gallery-grid">
+                <img src="https://th.bing.com/th/id/OIP.qrssoE59jFaonXAW32u2LgHaEo?rs=1&pid=ImgDetMain" alt="Gallery Image 1">
+                <img src="https://wallpapercave.com/wp/wp5074265.jpg" alt="Gallery Image 2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN8Nv_6H8nke8tW-xdOshLrxNdv89oKkRVVLM5mDNEjZba1dNETeFf1PyVRfzHXXw9ptk&usqp=CAU" alt="Gallery Image 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Independence Day | Proud to be Indian</p>
+        </div>
+    </footer>
+
+    <!-- GSAP Animations -->
+    <script>
+        // Smooth scrolling
+        ScrollSmoother.create({
+            smooth: 1.5,
+            effects: true,
+        });
+
+        // Parallax effect for hero video
+        gsap.to("#heroVideo", {
+            scrollTrigger: {
+                trigger: ".hero",
+                start: "top top",
+                end: "bottom top",
+                scrub: true,
+            },
+            scale: 1.2,
+            ease: "none"
+        });
+
+        // Hero content animation
+        gsap.from(".hero-content", {
+            opacity: 0,
+            y: 50,
+            duration: 1.5,
+            delay: 0.5,
+            ease: "power3.out"
+        });
+
+        // Scroll-triggered animations for sections
+        gsap.from("#history .content, #events .content", {
+            scrollTrigger: {
+                trigger: ".section",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none none",
+            },
+            opacity: 0,
+            y: 100,
+            duration: 1.5,
+            ease: "power3.out"
+        });
+
+        // Interactive cards animation
+        gsap.from(".card", {
+            scrollTrigger: {
+                trigger: ".card",
+                start: "top 90%",
+                end: "bottom 20%",
+                toggleActions: "play none none none",
+            },
+            opacity: 0,
+            scale: 0.8,
+            stagger: 0.2,
+            duration: 1.2,
+            ease: "power3.out"
+        });
+    </script>
+</body>
+
+</html>
